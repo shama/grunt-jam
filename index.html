@@ -1,0 +1,130 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Grunt-jam by shama</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Grunt-jam</h1>
+        <p>A Grunt task for compiling with the Jam package manager</p>
+
+        <p class="view"><a href="https://github.com/shama/grunt-jam">View the Project on GitHub <small>shama/grunt-jam</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/shama/grunt-jam/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/shama/grunt-jam/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/shama/grunt-jam">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <p>A Grunt task for compiling with the <a href="http://jamjs.org">Jam package manager</a>.</p>
+
+<h2>Getting Started</h2>
+
+<p>Be sure you have Jam installed with <code>npm install -g jamjs</code>.</p>
+
+<p>Install this grunt plugin next to your project's
+<a href="https://github.com/cowboy/grunt/blob/master/docs/getting_started.md">grunt.js gruntfile</a> with: <code>npm install grunt-jam</code>.</p>
+
+<p>Then add this line to your project's <code>grunt.js</code> gruntfile:</p>
+
+<div class="highlight">
+<pre><span class="nx">grunt</span><span class="p">.</span><span class="nx">loadNpmTasks</span><span class="p">(</span><span class="s1">'grunt-jam'</span><span class="p">);</span>
+</pre>
+</div>
+
+
+<h2>Documentation</h2>
+
+<p>Add the task to your config and specify the destination for the compiled file:</p>
+
+<div class="highlight">
+<pre><span class="nx">grunt</span><span class="p">.</span><span class="nx">initConfig</span><span class="p">({</span>
+  <span class="nx">jam</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">dist</span><span class="o">:</span> <span class="p">{</span>
+      <span class="nx">dest</span><span class="o">:</span> <span class="s1">'assets/js/compiled.js'</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+</pre>
+</div>
+
+
+<p>If you would like to include additional files specify <code>src</code> files:</p>
+
+<div class="highlight">
+<pre><span class="nx">grunt</span><span class="p">.</span><span class="nx">initConfig</span><span class="p">({</span>
+  <span class="nx">jam</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">dist</span><span class="o">:</span> <span class="p">{</span>
+      <span class="nx">src</span><span class="o">:</span> <span class="p">[</span><span class="s1">'assets/js/src/**/*.js'</span><span class="p">,</span> <span class="s1">'someother/file.js'</span><span class="p">],</span>
+      <span class="nx">dest</span><span class="o">:</span> <span class="s1">'assets/js/compiled.js'</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+</pre>
+</div>
+
+
+<p>All the compile options for jam are available. Set them with the <code>options</code> key
+like such:</p>
+
+<div class="highlight">
+<pre><span class="nx">grunt</span><span class="p">.</span><span class="nx">initConfig</span><span class="p">({</span>
+  <span class="nx">jam</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">dist</span><span class="o">:</span> <span class="p">{</span>
+      <span class="nx">dest</span><span class="o">:</span> <span class="s1">'assets/js/compiled.js'</span><span class="p">,</span>
+      <span class="nx">options</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">verbose</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+        <span class="nx">no</span><span class="o">-</span><span class="nx">minify</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+        <span class="nx">wrap</span><span class="o">:</span> <span class="kc">true</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+</pre>
+</div>
+
+
+<h2>Contributing</h2>
+
+<p>Please open an issue or send a pull request. Run <code>npm test</code> to test. Thanks!</p>
+
+<h2>Release History</h2>
+
+<ul>
+<li>0.1.0 Package up and publish jam task</li>
+</ul><h2>License</h2>
+
+<p>Copyright (c) 2012 Kyle Robinson Young
+Licensed under the MIT license.</p>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/shama">shama</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+              <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+          </script>
+          <script type="text/javascript">
+            try {
+              var pageTracker = _gat._getTracker("UA-33505086-1");
+            pageTracker._trackPageview();
+            } catch(err) {}
+          </script>
+
+  </body>
+</html>
