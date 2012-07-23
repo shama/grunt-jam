@@ -55,7 +55,7 @@ grunt.initConfig({
       dest: 'assets/js/compiled.js',
       options: {
         verbose: true,
-        no-minify: true,
+        nominify: true,
         wrap: true
       }
     }
