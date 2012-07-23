@@ -1,6 +1,6 @@
 {
   "name": "grunt-jam",
-  "description": "A Grunt task for compiling with the Jam package manager",
+  "description": "A Grunt task for compiling Jam packages",
   "version": "0.1.0",
   "homepage": "https://github.com/shama/grunt-jam",
   "author": {

@@ -1,6 +1,6 @@
 # grunt-jam
 
-A Grunt task for compiling with the [Jam package manager](http://jamjs.org).
+A Grunt task for compiling [Jam packages](http://jamjs.org).
 
 ## Getting Started
 
