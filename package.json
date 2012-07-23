@@ -1,0 +1,42 @@
+{
+  "name": "grunt-jam",
+  "description": "A Grunt task for compiling with the Jam package manager",
+  "version": "0.1.0",
+  "homepage": "https://github.com/shama/grunt-jam",
+  "author": {
+    "name": "Kyle Robinson Young",
+    "email": "kyle@dontkry.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/shama/grunt-jam.git"
+  },
+  "bugs": {
+    "url": "https://github.com/shama/grunt-jam/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/shama/grunt-jam/blob/master/LICENSE-MIT"
+    }
+  ],
+  "main": "grunt.js",
+  "bin": "bin/grunt-jam",
+  "engines": {
+    "node": "*"
+  },
+  "scripts": {
+    "test": "jam install jquery && grunt"
+  },
+  "dependencies": {
+    "grunt": "~0.3.x",
+    "jamjs": "~0.1.x"
+  },
+  "devDependencies": {
+    "grunt": "~0.3.x",
+    "rimraf": "~2.0.x"
+  },
+  "keywords": [
+    "gruntplugin", "jam"
+  ]
+}
