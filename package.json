@@ -1,7 +1,7 @@
 {
   "name": "grunt-jam",
   "description": "A Grunt task for compiling Jam packages",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "homepage": "https://github.com/shama/grunt-jam",
   "author": {
     "name": "Kyle Robinson Young",
@@ -29,7 +29,6 @@
     "test": "jam install jquery && grunt"
   },
   "dependencies": {
-    "grunt": "~0.3.x",
     "jamjs": "~0.1.x"
   },
   "devDependencies": {
