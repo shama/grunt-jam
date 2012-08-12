@@ -1,7 +1,7 @@
 {
   "name": "grunt-jam",
   "description": "A Grunt task for compiling Jam packages",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "homepage": "https://github.com/shama/grunt-jam",
   "author": {
     "name": "Kyle Robinson Young",

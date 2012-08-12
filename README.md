@@ -69,6 +69,7 @@ Please open an issue or send a pull request. Run `npm test` to test. Thanks!
 
 ## Release History
 
+* 0.2.1 Better defaults for pkgDir
 * 0.2.0 Update for JamJS 2
 * 0.1.1 Remove grunt as dep
 * 0.1.0 Package up and publish jam task

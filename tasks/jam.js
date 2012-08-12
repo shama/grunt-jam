@@ -37,9 +37,16 @@ module.exports = function(grunt) {
   });
 
   grunt.registerHelper('jam', function(options, done) {
+    if (!options) { options = {}; }
+    if (options.packageDir) {
+      options.pkgdir = options.packageDir;
+    }
+    if (options.package_dir) {
+      options.pkgdir = options.package_dir;
+    }
     options = _.defaults(options || {}, {
       output: '',
-      pkgdir: './jam',
+      pkgdir: 'jam',
       includes: {},
       wrap: false,
       almond: false,
@@ -47,8 +54,9 @@ module.exports = function(grunt) {
       nominify: false,
       nolicense: false
     });
+    var cwd = process.cwd();
 
-    jam.compile(__dirname, {}, options, function afterJamCompile(err) {
+    jam.compile(cwd, {}, options, function afterJamCompile(err) {
       if (err) {done(err);}
       done(null);
     });
