@@ -48,7 +48,7 @@ module.exports = function(grunt) {
       nolicense: false
     });
 
-    jam.compile({}, options, function afterJamCompile(err) {
+    jam.compile(__dirname, {}, options, function afterJamCompile(err) {
       if (err) {done(err);}
       done(null);
     });
