@@ -2,11 +2,12 @@ var grunt = require('grunt');
 var fs = require('fs');
 var path = require('path');
 var rimraf = require('rimraf');
+var jam = require('../tasks/lib/jam').init(grunt);
 
 // node v0.8/6 compat
 var existsSync = fs.existsSync || path.existsSync;
 
-exports['jam'] = {
+exports.jam = {
   tearDown: function(done) {
     rimraf.sync(path.join('test', 'output'));
     done();
@@ -23,7 +24,7 @@ exports['jam'] = {
     var opts = {
       output: path.join('test', 'output', 'testing.js')
     };
-    grunt.helper('jam', opts, function(err) {
+    jam.compile(opts, function(err) {
       if (err) {throw err;}
       var result = grunt.file.read(path.join('test', 'output', 'testing.js'));
       test.ok((result.indexOf('http://jquery.com/') !== -1));

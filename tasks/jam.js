@@ -9,57 +9,46 @@
 module.exports = function(grunt) {
   'use strict';
 
-  var jam = require('jamjs');
+  var jam = require('./lib/jam').init(grunt);
+  var path = require('path');
 
   // TODO: ditch this when grunt v0.4 is released
   grunt.util = grunt.util || grunt.utils;
 
-  var _ = grunt.util._;
-
   grunt.registerMultiTask('jam', 'compile your jam dependencies', function() {
-    var files = grunt.file.expandFiles(this.file.src || []);
-    var options = this.data.options || {};
+    var helpers = require('grunt-contrib-lib').init(grunt);
+    var options = helpers.options(this);
+
+    grunt.verbose.writeflags(options, 'Options');
+
+    // TODO: ditch this when grunt v0.4 is released
+    this.files = this.files || helpers.normalizeMultiTaskFiles(this.data, this.target);
+
     var done = this.async();
-    options.output = this.file.dest;
 
-    if (files.length > 0) {
-      options.includes = files;
-    }
+    grunt.util.async.forEachSeries(this.files, function(file, next) {
+      options.output = path.normalize(file.dest);
 
-    grunt.log.writeln('compiling '.cyan + options.output);
-
-    grunt.helper('jam', options, function afterJamHelper(err) {
-      if (err) {
-        grunt.log.fail(err.message);
+      if (typeof file.src === 'string') {
+        file.src = [file.src];
       }
-      done();
-    });
-  });
 
-  grunt.registerHelper('jam', function(options, done) {
-    if (!options) { options = {}; }
-    if (options.packageDir) {
-      options.pkgdir = options.packageDir;
-    }
-    if (options.package_dir) {
-      options.pkgdir = options.package_dir;
-    }
-    options = _.defaults(options || {}, {
-      output: '',
-      pkgdir: 'jam',
-      includes: {},
-      wrap: false,
-      almond: false,
-      verbose: false,
-      nominify: false,
-      nolicense: false,
-      cwd: process.cwd()
-    });
+      var srcFiles = grunt.file.expandFiles(file.src);
+      if (srcFiles.length > 0) {
+        options.includes = srcFiles;
+      }
 
-    jam.compile(options, function afterJamCompile(err) {
-      if (err) {done(err);}
-      done(null);
-    });
+      grunt.log.writeln('compiling '.cyan + options.output);
+
+      jam.compile(options, function afterJamHelper(err) {
+        if (err) {
+          grunt.log.fail(err.message);
+        }
+        next();
+      });
+
+    }, done);
+
   });
 
 };

@@ -16,7 +16,7 @@ module.exports = function(grunt) {
     },
     watch: {
       files: '<config:lint.files>',
-      tasks: 'default'
+      tasks: ['default']
     },
     jshint: {
       options: {
@@ -37,5 +37,5 @@ module.exports = function(grunt) {
     }
   });
   grunt.loadTasks('tasks');
-  grunt.registerTask('default', 'jam lint test');
+  grunt.registerTask('default', ['jam', 'lint', 'test']);
 };
