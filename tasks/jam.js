@@ -52,11 +52,11 @@ module.exports = function(grunt) {
       almond: false,
       verbose: false,
       nominify: false,
-      nolicense: false
+      nolicense: false,
+      cwd: process.cwd()
     });
-    var cwd = process.cwd();
 
-    jam.compile(cwd, {}, options, function afterJamCompile(err) {
+    jam.compile(options, function afterJamCompile(err) {
       if (err) {done(err);}
       done(null);
     });
