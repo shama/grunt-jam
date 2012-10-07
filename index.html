@@ -28,7 +28,10 @@
         </ul>
       </header>
       <section>
-        <p>A Grunt task for compiling with the <a href="http://jamjs.org">Jam package manager</a>.</p>
+        <h1>grunt-jam <a href="http://travis-ci.org/shama/grunt-jam"><img src="https://secure.travis-ci.org/shama/grunt-jam.png?branch=master" alt="Build Status"></a>
+</h1>
+
+<p>A Grunt task for compiling <a href="http://jamjs.org">Jam packages</a>.</p>
 
 <h2>Getting Started</h2>
 
@@ -39,32 +42,25 @@
 
 <p>Then add this line to your project's <code>grunt.js</code> gruntfile:</p>
 
-<div class="highlight">
-<pre><span class="nx">grunt</span><span class="p">.</span><span class="nx">loadNpmTasks</span><span class="p">(</span><span class="s1">'grunt-jam'</span><span class="p">);</span>
-</pre>
-</div>
-
+<div class="highlight"><pre><span class="nx">grunt</span><span class="p">.</span><span class="nx">loadNpmTasks</span><span class="p">(</span><span class="s1">'grunt-jam'</span><span class="p">);</span>
+</pre></div>
 
 <h2>Documentation</h2>
 
 <p>Add the task to your config and specify the destination for the compiled file:</p>
 
-<div class="highlight">
-<pre><span class="nx">grunt</span><span class="p">.</span><span class="nx">initConfig</span><span class="p">({</span>
+<div class="highlight"><pre><span class="nx">grunt</span><span class="p">.</span><span class="nx">initConfig</span><span class="p">({</span>
   <span class="nx">jam</span><span class="o">:</span> <span class="p">{</span>
     <span class="nx">dist</span><span class="o">:</span> <span class="p">{</span>
       <span class="nx">dest</span><span class="o">:</span> <span class="s1">'assets/js/compiled.js'</span>
     <span class="p">}</span>
   <span class="p">}</span>
 <span class="p">});</span>
-</pre>
-</div>
-
+</pre></div>
 
 <p>If you would like to include additional files specify <code>src</code> files:</p>
 
-<div class="highlight">
-<pre><span class="nx">grunt</span><span class="p">.</span><span class="nx">initConfig</span><span class="p">({</span>
+<div class="highlight"><pre><span class="nx">grunt</span><span class="p">.</span><span class="nx">initConfig</span><span class="p">({</span>
   <span class="nx">jam</span><span class="o">:</span> <span class="p">{</span>
     <span class="nx">dist</span><span class="o">:</span> <span class="p">{</span>
       <span class="nx">src</span><span class="o">:</span> <span class="p">[</span><span class="s1">'assets/js/src/**/*.js'</span><span class="p">,</span> <span class="s1">'someother/file.js'</span><span class="p">],</span>
@@ -72,29 +68,24 @@
     <span class="p">}</span>
   <span class="p">}</span>
 <span class="p">});</span>
-</pre>
-</div>
-
+</pre></div>
 
 <p>All the compile options for jam are available. Set them with the <code>options</code> key
 like such:</p>
 
-<div class="highlight">
-<pre><span class="nx">grunt</span><span class="p">.</span><span class="nx">initConfig</span><span class="p">({</span>
+<div class="highlight"><pre><span class="nx">grunt</span><span class="p">.</span><span class="nx">initConfig</span><span class="p">({</span>
   <span class="nx">jam</span><span class="o">:</span> <span class="p">{</span>
     <span class="nx">dist</span><span class="o">:</span> <span class="p">{</span>
       <span class="nx">dest</span><span class="o">:</span> <span class="s1">'assets/js/compiled.js'</span><span class="p">,</span>
       <span class="nx">options</span><span class="o">:</span> <span class="p">{</span>
         <span class="nx">verbose</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
-        <span class="nx">no</span><span class="o">-</span><span class="nx">minify</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+        <span class="nx">nominify</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
         <span class="nx">wrap</span><span class="o">:</span> <span class="kc">true</span>
       <span class="p">}</span>
     <span class="p">}</span>
   <span class="p">}</span>
 <span class="p">});</span>
-</pre>
-</div>
-
+</pre></div>
 
 <h2>Contributing</h2>
 
@@ -103,6 +94,10 @@ like such:</p>
 <h2>Release History</h2>
 
 <ul>
+<li>0.3.0 Compatibility with JamJS v0.2.8. Refactor for migration to Grunt 0.4</li>
+<li>0.2.1 Better defaults for pkgDir</li>
+<li>0.2.0 Update for JamJS 2</li>
+<li>0.1.1 Remove grunt as dep</li>
 <li>0.1.0 Package up and publish jam task</li>
 </ul><h2>License</h2>
 
