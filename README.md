@@ -1,4 +1,4 @@
-# grunt-jam
+# grunt-jam [![Build Status](https://secure.travis-ci.org/shama/grunt-jam.png?branch=master)](http://travis-ci.org/shama/grunt-jam)
 
 A Grunt task for compiling [Jam packages](http://jamjs.org).
 

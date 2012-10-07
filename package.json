@@ -30,7 +30,7 @@
   },
   "dependencies": {
     "grunt-contrib-lib": "~0.3.0",
-    "jamjs": "~0.2.8"
+    "jamjs": "~0.2.9"
   },
   "devDependencies": {
     "grunt": "~0.3.15",
