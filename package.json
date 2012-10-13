@@ -29,7 +29,7 @@
     "test": "jam install jquery && grunt"
   },
   "dependencies": {
-    "grunt-contrib-lib": "~0.3.0",
+    "grunt-lib-contrib": "~0.3.0",
     "jamjs": "~0.2.9"
   },
   "devDependencies": {
