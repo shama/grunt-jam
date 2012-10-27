@@ -30,13 +30,14 @@
   },
   "dependencies": {
     "grunt-lib-contrib": "~0.3.0",
-    "jamjs": "~0.2.9"
+    "jamjs": "~0.2.11"
   },
   "devDependencies": {
     "grunt": "~0.3.15",
     "rimraf": "~2.0.2"
   },
   "keywords": [
-    "gruntplugin", "jam"
+    "gruntplugin",
+    "jam"
   ]
 }

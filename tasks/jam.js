@@ -29,6 +29,7 @@ module.exports = function(grunt) {
     grunt.util.async.forEachSeries(this.files, function(file, next) {
       options.output = path.normalize(file.dest);
 
+      file.src = file.src || [];
       if (typeof file.src === 'string') {
         file.src = [file.src];
       }
