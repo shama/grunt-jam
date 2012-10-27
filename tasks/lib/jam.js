@@ -12,19 +12,14 @@ exports.init = function(grunt) {
   var exports = {};
 
   var jam = require('jamjs');
+  var jamrc = require('jamjs/lib/jamrc');
 
   // TODO: ditch this when grunt v0.4 is released
   grunt.util = grunt.util || grunt.utils;
 
   // Compile jamjs
   exports.compile = function(options, done) {
-    if (!options) { options = {}; }
-    if (options.packageDir) {
-      options.pkgdir = options.packageDir;
-    }
-    if (options.package_dir) {
-      options.pkgdir = options.package_dir;
-    }
+    // Default options
     options = grunt.util._.defaults(options || {}, {
       output: '',
       pkgdir: 'jam',
@@ -37,12 +32,22 @@ exports.init = function(grunt) {
       cwd: process.cwd()
     });
 
-    jam.compile(options, function afterJamCompile(err) {
-      if (err) {
-        done(err);
-      }
-      done(null);
-    });
+    grunt.util.async.series([function(next) {
+      // Merge config from .jamrc file if exists
+      jamrc.loadProjectRC(jamrc.DEFAULTS, process.cwd(), function(err, opts) {
+        options = grunt.util._.defaults(options, opts);
+        next();
+      });
+    }, function(next) {
+      // Rename alternative package dir to pkgdir
+      if (options.packageDir) { options.pkgdir = options.packageDir; }
+      if (options.package_dir) { options.pkgdir = options.package_dir; }
+      // Compile with jam
+      jam.compile(options, function afterJamCompile(err) {
+        if (err) { next(err); }
+        next(null);
+      });
+    }], done);
   };
 
   return exports;
