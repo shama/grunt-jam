@@ -16,7 +16,7 @@ module.exports = function(grunt) {
   grunt.util = grunt.util || grunt.utils;
 
   grunt.registerMultiTask('jam', 'compile your jam dependencies', function() {
-    var helpers = require('grunt-contrib-lib').init(grunt);
+    var helpers = require('grunt-lib-contrib').init(grunt);
     var options = helpers.options(this);
 
     grunt.verbose.writeflags(options, 'Options');
