@@ -69,6 +69,7 @@ Please open an issue or send a pull request. Run `npm test` to test. Thanks!
 
 ## Release History
 
+* 0.3.3 Update for latest Grunt v0.4
 * 0.3.2 Fix `grunt-lib-contrib` module name.
 * 0.3.1 Enable reading .jamrc files for settings. Allow additional `src` to be blank.
 * 0.3.0 Compatibility with JamJS v0.2.8. Refactor for migration to Grunt 0.4
