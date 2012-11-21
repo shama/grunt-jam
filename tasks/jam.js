@@ -21,12 +21,12 @@ module.exports = function(grunt) {
 
     grunt.verbose.writeflags(options, 'Options');
 
-    // TODO: ditch this when grunt v0.4 is released
-    this.files = this.files || helpers.normalizeMultiTaskFiles(this.data, this.target);
+    // TODO: change this when grunt v0.4 is released
+    var files = helpers.normalizeMultiTaskFiles(this.data, this.target);
 
     var done = this.async();
 
-    grunt.util.async.forEachSeries(this.files, function(file, next) {
+    grunt.util.async.forEachSeries(files, function(file, next) {
       options.output = path.normalize(file.dest);
 
       file.src = file.src || [];

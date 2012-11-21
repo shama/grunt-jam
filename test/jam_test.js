@@ -1,13 +1,9 @@
 'use strict';
 
 var grunt = require('grunt');
-var fs = require('fs');
 var path = require('path');
 var rimraf = require('rimraf');
 var jam = require('../tasks/lib/jam').init(grunt);
-
-// node v0.8/6 compat
-var existsSync = fs.existsSync || path.existsSync;
 
 exports.jam = {
   tearDown: function(done) {
@@ -29,7 +25,7 @@ exports.jam = {
     jam.compile(opts, function(err) {
       if (err) {throw err;}
       var result = grunt.file.read(path.join('test', 'output', 'testing.js'));
-      test.ok((result.indexOf('http://jquery.com/') !== -1));
+      test.ok((result.indexOf('jquery.com') !== -1));
       test.done();
     });
   }
