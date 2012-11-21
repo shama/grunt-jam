@@ -7,9 +7,9 @@ A Grunt task for compiling [Jam packages](http://jamjs.org).
 Be sure you have Jam installed with `npm install -g jamjs`.
 
 Install this grunt plugin next to your project's
-[grunt.js gruntfile][getting_started] with: `npm install grunt-jam`.
+[Gruntfile.js][getting_started] with: `npm install grunt-jam`.
 
-Then add this line to your project's `grunt.js` gruntfile:
+Then add this line to your project's `Gruntfile.js`:
 
 ```javascript
 grunt.loadNpmTasks('grunt-jam');
