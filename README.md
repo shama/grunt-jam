@@ -63,12 +63,38 @@ grunt.initConfig({
 });
 ```
 
+### Configuring JamJS into another folder besides `./jam`
+The best way, imo, is to create a `.jamrc` file and put
+`exports.package_dir = 'js';` into it. Both JamJS and grunt-jam will read that
+file.
+
+If you rather configure another dir within your `Gruntfile.js` you can do so
+within the options:
+
+```javascript
+grunt.initConfig({
+  jam: {
+    dist: {
+      dest: 'dist/compiled.js',
+      options: {
+        pkgdir: 'js'
+      }
+    }
+  }
+});
+```
+
+*There are two alternate options for the package dir: `packageDir` and
+`package_dir`. I recommend always using `pkgdir` as the other two are for
+backwards compatibility.*
+
 ## Contributing
 
 Please open an issue or send a pull request. Run `npm test` to test. Thanks!
 
 ## Release History
 
+* 0.3.4 Fix issue with `packageDir` option.
 * 0.3.3 Update for latest Grunt v0.4
 * 0.3.2 Fix `grunt-lib-contrib` module name.
 * 0.3.1 Enable reading .jamrc files for settings. Allow additional `src` to be blank.

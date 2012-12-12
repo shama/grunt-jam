@@ -40,8 +40,11 @@ exports.init = function(grunt) {
       });
     }, function(next) {
       // Rename alternative package dir to pkgdir
-      if (options.packageDir) { options.pkgdir = options.packageDir; }
-      if (options.package_dir) { options.pkgdir = options.package_dir; }
+      if (typeof options.packageDir === 'string') {
+        options.pkgdir = options.packageDir;
+      } else if (typeof options.package_dir === 'string') {
+        options.pkgdir = options.package_dir;
+      }
       // Compile with jam
       jam.compile(options, function afterJamCompile(err) {
         if (err) { next(err); }
