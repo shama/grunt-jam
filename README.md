@@ -94,6 +94,7 @@ Please open an issue or send a pull request. Run `npm test` to test. Thanks!
 
 ## Release History
 
+* 0.4.0 Grunt v0.4 Support.
 * 0.3.4 Fix issue with `packageDir` option.
 * 0.3.3 Update for latest Grunt v0.4
 * 0.3.2 Fix `grunt-lib-contrib` module name.

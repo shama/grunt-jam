@@ -3,7 +3,7 @@
 var grunt = require('grunt');
 var path = require('path');
 var rimraf = require('rimraf');
-var jam = require('../tasks/lib/jam').init(grunt);
+var jam = require('../tasks/lib/jam');
 
 exports.jam = {
   tearDown: function(done) {
