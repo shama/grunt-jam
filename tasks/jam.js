@@ -18,9 +18,11 @@ module.exports = function(grunt) {
     var done = this.async();
     grunt.util.async.forEachSeries(this.files, function asyncForEachSeries(file, next) {
       options.output = path.normalize(file.dest);
-      var srcFiles = grunt.file.expand(file.src);
-      if (srcFiles.length > 0) {
-        options.includes = srcFiles;
+      if (file.src) {
+        var srcFiles = grunt.file.expand(file.src);
+        if (srcFiles.length > 0) {
+          options.includes = srcFiles;
+        }
       }
       grunt.log.writeln('compiling '.cyan + options.output);
       jam.compile(options, function jamCompile(err) {
